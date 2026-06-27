@@ -1,0 +1,54 @@
+# Transport environment configuration (Robomimic)
+name: transport
+dataset_class: dyn_model.datasets.robomimic_dset.RobomimicImageDynamicsModelDataset
+
+# Dataset paths
+train_data_path: path/to/train_data.hdf5  # set to your dyn-model training data
+val_data_path: path/to/val_data.hdf5  # set to your dyn-model validation data
+
+# Dataset parameters
+view_names: ['robot0_eye_in_hand_image', 'robot1_eye_in_hand_image', 'shouldercamera0_image', 'shouldercamera1_image']
+encoder_type: 'resnet'
+return_rewards: false
+
+# Action and proprioception dimensions
+action_dim: 20  # Absolute action for transport (dual arm)
+proprio_dim: 18  # robot0_eef_pos(3) + robot0_eef_quat(4) + robot0_gripper_qpos(2) + robot1_eef_pos(3) + robot1_eef_quat(4) + robot1_gripper_qpos(2)
+
+# Image dimensions
+original_img_size: 140
+cropped_img_size: 128  # When use_crop is true
+
+# Model embeddings
+action_emb_dim: 330
+proprio_emb_dim: 32
+
+# Policy checkpoint
+policy_ckpt_path: 'path/to/policy.ckpt'  # set to your base policy checkpoint
+
+# Shape meta for observations
+shape_obs:
+  robot0_eef_pos:
+    shape: [3]
+  robot0_eef_quat:
+    shape: [4]
+  robot0_gripper_qpos:
+    shape: [2]
+  robot1_eef_pos:
+    shape: [3]
+  robot1_eef_quat:
+    shape: [4]
+  robot1_gripper_qpos:
+    shape: [2]
+  robot0_eye_in_hand_image:
+    shape: [3, 140, 140]
+    type: 'rgb'
+  robot1_eye_in_hand_image:
+    shape: [3, 140, 140]
+    type: 'rgb'
+  shouldercamera0_image:
+    shape: [3, 140, 140]
+    type: 'rgb'
+  shouldercamera1_image:
+    shape: [3, 140, 140]
+    type: 'rgb'

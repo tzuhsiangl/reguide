@@ -1,0 +1,44 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Model checkpoints and data
+*.pt
+*.pth
+*.ckpt
+*.hdf5
+
+# Logs and outputs
+outputs/
+result/
+rollout_data/
+wandb/
+logs/
+
+# VSCode settings
+.vscode/
+
+# Videos
+*.mp4
+*.avi
+*.gif
+*.zip
+
+data/
+*.zarr.zip
+*.zarr.zip.lock
+*.lock
+*.h5
+.hydra/
+*.out
+pretrained_model/
+wandb_logs/
+eval_test_time_optimization.log
+eval_test_time_optimization_threshold.log
+eval_test_time_optimization_libero.log
+eval_test_time_optimization_continual.log
+
+*.log
+eval_test_time_optimization_libero*.log

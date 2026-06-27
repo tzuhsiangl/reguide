@@ -1,0 +1,61 @@
+# config.yaml
+hydra:
+  run:
+    dir: .
+
+
+dynamics_model_checkpoint: 'path/to/dynamic/model'
+policy_checkpoint: 'path/to/policy/checkpoint'
+
+guidance_start_timestep: 10
+#guidance_scale: 0.2
+#guidance_scale: 0.5
+guidance_scale: 0.0005
+
+n_test: 50
+test_start_seed: 100000
+n_action_steps: 15
+
+
+output_dir: 'outputs/inference/transport/MPGD_liked_subgoal_kmeans/${now:%Y-%m-%d}/${now:%H-%M-%S}'
+
+
+
+device: "cuda"
+
+# Environment runner configuration
+env_runner_target: 'diffusion_policy.env_runner.robomimic_image_sequential_runner_new.SequentialRobomimicImageRunner'
+
+# Planner configuration
+planner_target: 'dyn_model.planner.Planner'
+
+
+
+guidance: False
+
+pcg_data_path: 'path/to/pcg/data'
+demo_dataset_path: 'path/to/training_data'
+
+
+latent_dir: "/targets/transport/kmeans_prop_time"
+
+targets_num: 40
+tau: 10
+threshold_perc: 70
+soft_min: False
+save_hdf5: False
+success_hdf5_path: '${output_dir}/rollouts_success.hdf5'   # or rollouts_all.hdf5 if you want
+save_video: True
+obs_noise: False
+action_noise: False
+obs_image_noise_std: 0.05
+obs_state_noise_std: 0.01
+action_noise_std: 0.02
+pca_dim: 128
+rollout: False
+phase_switch_margin: 0.1
+phase_switch_min_steps: 2
+phase_switch_use_threshold: True
+guidance_threshold_lower_perc: 50
+guidance_threshold_upper_perc: 70
+guidance_disable_when_next_is_near: True

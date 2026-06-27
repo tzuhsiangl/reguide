@@ -1,0 +1,74 @@
+name: reguide
+channels:
+  - pytorch
+  - pytorch3d
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip=22.2.2
+  - cudatoolkit=11.6
+  - pytorch3d=0.7.0
+  - numpy=1.23.3
+  - numba=0.56.4
+  - scipy=1.9.1
+  - py-opencv=4.6.0
+  - cffi=1.15.1
+  - ipykernel=6.16
+  - matplotlib=3.6.1
+  - zarr=2.12.0
+  - numcodecs=0.10.2
+  - h5py=3.7.0
+  - hydra-core=1.2.0
+  - einops=0.4.1
+  - tqdm=4.67.1
+  - dill=0.3.5.1
+  - scikit-video=1.1.11
+  - scikit-image=0.19.3
+  - gym=0.21.0
+  - pymunk=6.2.1
+  - wandb=0.13.3
+  - threadpoolctl=3.1.0
+  - shapely=1.8.4
+  - cython=0.29.32
+  - imageio=2.22.0
+  - imageio-ffmpeg=0.4.7
+  - termcolor=2.0.1
+  - tensorboard=2.10.1
+  - tensorboardx=2.5.1
+  - psutil=5.9.2
+  - click=8.0.4
+  - boto3=1.24.96
+  - accelerate=0.13.2
+  - datasets=2.6.1
+  - diffusers=0.11.1
+  - av=10.0.0
+  - cmake=3.24.3
+  # avoids the cpu-affinity issue in https://github.com/pytorch/pytorch/issues/99625
+  - llvm-openmp=14
+  - imagecodecs=2022.9.26
+  - pip:
+      # PyTorch (pip wheels pull their own CUDA 12 libs: nvidia-*-cu12, triton, ...)
+      - torch==2.8.0
+      - torchvision==0.23.0
+      - torchaudio==2.8.0
+      # simulation / robomimic stack
+      # NOTE: MuJoCo rendering needs system GL: libgl1-mesa-glx libegl1 libosmesa6 libglfw3 patchelf
+      - mujoco==3.3.7
+      - robosuite==1.4.1
+      # robomimic 0.4.0 is not on PyPI (max 0.3.0); pin the v0.4.0 release commit.
+      # (master is now 0.5.0, which pins huggingface_hub==0.23.4 and conflicts below)
+      - robomimic @ git+https://github.com/ARISE-Initiative/robomimic.git@7c66e7a41b5d9dcc905b1a68346bfee1b49b79c9
+      - dm-control==1.0.9
+      - egl-probe==1.0.2
+      - pybullet-svl==3.1.6.4
+      - pygame==2.1.2
+      - pytorchvideo==0.1.5
+      # language / LIBERO
+      - transformers==4.26.1
+      - tokenizers==0.13.3
+      - sentencepiece==0.2.1
+      - huggingface-hub==0.12.1
+      # distributed (ray[default,tune] pulls aiohttp-cors, gpustat, py-spy, ...)
+      - ray[default,tune]==2.2.0
+      - r3m @ https://github.com/facebookresearch/r3m/archive/b2334e726887fa0206962d7984c69c5fb09cceab.tar.gz
