@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://reguide-project.github.io/"><img src="https://img.shields.io/badge/Project-Page-1f6feb"></a>
-  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-paper-b31b1b?logo=arxiv&logoColor=white"></a>
+  <a href="https://arxiv.org/abs/2606.28939"><img src="https://img.shields.io/badge/arXiv-2606.28939-b31b1b?logo=arxiv&logoColor=white"></a>
   <a href="https://huggingface.co/datasets/thl1246/reguide-training-data"><img src="https://img.shields.io/badge/Data-HF-FFD21E?logo=huggingface&logoColor=black"></a>
   <a href="https://huggingface.co/thl1246/reguide-checkpoints"><img src="https://img.shields.io/badge/Models-HF-FFD21E?logo=huggingface&logoColor=black"></a>
 </p>
@@ -217,13 +217,15 @@ $ bash eval/eval_can.sh        # or eval/eval_<task>.sh
  - [Diffusion Policy](https://diffusion-policy.cs.columbia.edu/): The base diffusion policy was built on top of the Diffusion Policy codebase.
  - [DINO-WM](https://github.com/gaoyuezhou/dino_wm): Part of the dynamics model training code was adapted from the DINO-WM codebase.
 
- <!--If you find this work useful, consider citing:
+## Citation
+
+If you find this work useful, please consider citing:
 
 ```bibtex
-@article{sun2025latent,
-  title={Latent policy barrier: Learning robust visuomotor policies by staying in-distribution},
-  author={Sun, Zhanyi and Song, Shuran},
-  journal={arXiv preprint arXiv:2508.05941},
-  year={2025}
+@article{lin2026reguide,
+  title={ReGuide: From Test-Time Guidance to Self-Improving Diffusion Policies},
+  author={Lin, Tzu-Hsiang and Shakkottai, Srinivas and Kalathil, Dileep and Kumar, P. R.},
+  journal={arXiv preprint arXiv:2606.28939},
+  year={2026}
 }
-```-->
+```
